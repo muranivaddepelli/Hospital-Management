@@ -296,25 +296,25 @@ const Tasks = () => {
             <table className="table">
               <thead>
                 <tr>
-                  <th>Task ID</th>
-                  <th>Hospital</th>
-                  <th>Area</th>
-                  <th>Name</th>
-                  <th className="min-w-[200px]">Description</th>
+                  <th className="text-center">Task ID</th>
+                  <th className="text-left">Hospital</th>
+                  <th className="text-left">Area</th>
+                  <th className="text-left">Name</th>
+                  <th className="text-left min-w-[200px]">Description</th>
                   <th className="text-center">Order</th>
                   <th className="text-center">Status</th>
-                  <th className="text-right">Actions</th>
+                  <th className="text-center">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {data.tasks.map((task) => (
                   <tr key={task._id}>
-                    <td>
+                    <td className="text-center">
                       <span className="font-mono text-sm font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded">
                         {task.taskId}
                       </span>
                     </td>
-                    <td>
+                    <td className="text-left">
                       {task.area?.hospital ? (
                         <span className="inline-flex items-center gap-1 text-xs text-cyan-700">
                           <HiOutlineBuildingOffice2 className="w-3.5 h-3.5" />
@@ -324,34 +324,32 @@ const Tasks = () => {
                         <span className="text-slate-400 text-sm">-</span>
                       )}
                     </td>
-                    <td>
+                    <td className="text-left">
                       <span className="text-sm text-slate-600">
                         {task.area?.name}
                       </span>
                     </td>
-                    <td className="font-medium text-slate-800">{task.name}</td>
-                    <td className="text-sm text-slate-600 max-w-xs">
+                    <td className="text-left font-medium text-slate-800">{task.name}</td>
+                    <td className="text-left text-sm text-slate-600 max-w-xs">
                       <span className="line-clamp-2">{task.description}</span>
                     </td>
                     <td className="text-center">
                       <span className="text-sm text-slate-500">{task.order}</span>
                     </td>
-                    <td>
-                      <div className="flex justify-center">
-                        <button
-                          onClick={() => toggleStatus(task._id)}
-                          className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                            task.isActive
-                              ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
-                              : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                          }`}
-                        >
-                          {task.isActive ? 'Active' : 'Inactive'}
-                        </button>
-                      </div>
+                    <td className="text-center">
+                      <button
+                        onClick={() => toggleStatus(task._id)}
+                        className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                          task.isActive
+                            ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
+                            : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                        }`}
+                      >
+                        {task.isActive ? 'Active' : 'Inactive'}
+                      </button>
                     </td>
-                    <td>
-                      <div className="flex items-center justify-end gap-2">
+                    <td className="text-center">
+                      <div className="inline-flex items-center gap-2">
                         <button
                           onClick={() => openEditModal(task)}
                           className="p-2 rounded-lg text-slate-400 hover:text-primary-600 hover:bg-primary-50 transition-colors"

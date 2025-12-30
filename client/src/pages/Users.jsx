@@ -259,18 +259,18 @@ const Users = () => {
             <table className="table">
               <thead>
                 <tr>
-                  <th>User</th>
-                  <th>Email</th>
-                  <th>Hospital</th>
+                  <th className="text-left">User</th>
+                  <th className="text-left">Email</th>
+                  <th className="text-left">Hospital</th>
                   <th className="text-center">Role</th>
                   <th className="text-center">Status</th>
-                  <th className="text-right">Actions</th>
+                  <th className="text-center">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {data.users.map((user) => (
                   <tr key={user._id}>
-                    <td>
+                    <td className="text-left">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-medical-teal flex items-center justify-center text-white font-semibold">
                           {user.name?.charAt(0).toUpperCase()}
@@ -278,8 +278,8 @@ const Users = () => {
                         <span className="font-medium text-slate-800">{user.name}</span>
                       </div>
                     </td>
-                    <td className="text-slate-600">{user.email}</td>
-                    <td>
+                    <td className="text-left text-slate-600">{user.email}</td>
+                    <td className="text-left">
                       {user.hospital ? (
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-cyan-50 text-cyan-700 border border-cyan-200">
                           <HiOutlineBuildingOffice2 className="w-3.5 h-3.5" />
@@ -289,39 +289,35 @@ const Users = () => {
                         <span className="text-slate-400 text-sm">Not assigned</span>
                       )}
                     </td>
-                    <td>
-                      <div className="flex justify-center">
-                        <span className={`
-                          inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
-                          ${user.role === 'admin' 
-                            ? 'bg-purple-100 text-purple-700' 
-                            : 'bg-blue-100 text-blue-700'
-                          }
-                        `}>
-                          {user.role === 'admin' 
-                            ? <HiOutlineShieldCheck className="w-3.5 h-3.5" />
-                            : <HiOutlineUser className="w-3.5 h-3.5" />
-                          }
-                          {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
-                        </span>
-                      </div>
+                    <td className="text-center">
+                      <span className={`
+                        inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
+                        ${user.role === 'admin' 
+                          ? 'bg-purple-100 text-purple-700' 
+                          : 'bg-blue-100 text-blue-700'
+                        }
+                      `}>
+                        {user.role === 'admin' 
+                          ? <HiOutlineShieldCheck className="w-3.5 h-3.5" />
+                          : <HiOutlineUser className="w-3.5 h-3.5" />
+                        }
+                        {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
+                      </span>
                     </td>
-                    <td>
-                      <div className="flex justify-center">
-                        <button
-                          onClick={() => toggleStatus(user._id)}
-                          className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                            user.isActive
-                              ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
-                              : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                          }`}
-                        >
-                          {user.isActive ? 'Active' : 'Inactive'}
-                        </button>
-                      </div>
+                    <td className="text-center">
+                      <button
+                        onClick={() => toggleStatus(user._id)}
+                        className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                          user.isActive
+                            ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
+                            : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                        }`}
+                      >
+                        {user.isActive ? 'Active' : 'Inactive'}
+                      </button>
                     </td>
-                    <td>
-                      <div className="flex items-center justify-end gap-2">
+                    <td className="text-center">
+                      <div className="inline-flex items-center gap-2">
                         <button
                           onClick={() => openEditModal(user)}
                           className="p-2 rounded-lg text-slate-400 hover:text-primary-600 hover:bg-primary-50 transition-colors"

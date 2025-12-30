@@ -107,8 +107,10 @@ const uploadLogoValidation = [
     .withMessage('Please provide a valid image (base64 or URL)')
 ];
 
-// Public routes (authenticated)
-router.get('/active', authenticate, hospitalController.getActive);
+// Public routes (no auth needed for signup)
+router.get('/active', hospitalController.getActive);
+
+// Authenticated routes
 router.get('/default', authenticate, hospitalController.getDefault);
 router.get('/branding', authenticate, hospitalController.getBranding);
 

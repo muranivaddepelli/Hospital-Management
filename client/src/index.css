@@ -118,11 +118,27 @@
   }
 
   .table th {
-    @apply px-4 py-3.5 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider bg-slate-50/80;
+    @apply px-4 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider bg-slate-50/80;
   }
 
   .table td {
     @apply px-4 py-4 text-slate-700 border-t border-slate-100;
+    vertical-align: middle;
+  }
+
+  .table th.text-center,
+  .table td.text-center {
+    text-align: center;
+  }
+
+  .table th.text-left,
+  .table td.text-left {
+    text-align: left;
+  }
+
+  .table th.text-right,
+  .table td.text-right {
+    text-align: right;
   }
 
   .table tbody tr {
