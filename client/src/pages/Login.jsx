@@ -4,7 +4,7 @@ import { HiOutlineEnvelope, HiOutlineLockClosed, HiOutlineEye, HiOutlineEyeSlash
 import { useAuth } from '../context/AuthContext';
 import { Logo, Button, Input } from '../components/common';
 import toast from 'react-hot-toast';
-
+import logo from '../../src/assets/Logo.png';
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -77,10 +77,13 @@ const Login = () => {
         <div className="relative z-10 flex flex-col justify-center px-16 text-white">
           <div className="mb-12">
             <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center mb-8">
-              <svg viewBox="0 0 24 24" fill="none" className="w-12 h-12">
-                <path d="M12 2v20M2 12h20" stroke="white" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </div>
+  <img
+    src={logo}
+    alt="Sugar & Heart Clinic"
+    className="w-14 h-14 object-contain"
+  />
+</div>
+
             <h1 className="text-4xl font-display font-bold mb-4">
               Sugar & Heart Clinic
             </h1>
@@ -174,9 +177,11 @@ const Login = () => {
                 className="absolute right-3 top-[38px] text-slate-400 hover:text-slate-600 transition-colors"
               >
                 {showPassword ? (
-                  <HiOutlineEyeSlash className="w-5 h-5" />
-                ) : (
+                  // <HiOutlineEyeSlash className="w-5 h-5" />
                   <HiOutlineEye className="w-5 h-5" />
+
+                ) : (
+                  <HiOutlineEyeSlash className="w-5 h-5" />
                 )}
               </button>
             </div>
@@ -207,21 +212,6 @@ const Login = () => {
             </Link>
           </p>
 
-          <div className="mt-6 p-4 rounded-xl bg-slate-50 border border-slate-100">
-            <p className="text-xs text-slate-500 text-center mb-2">Demo Credentials</p>
-            <div className="grid grid-cols-2 gap-4 text-xs">
-              <div>
-                <p className="font-medium text-slate-700">Admin</p>
-                <p className="text-slate-500">admin@clinic.com</p>
-                <p className="text-slate-500">admin123</p>
-              </div>
-              <div>
-                <p className="font-medium text-slate-700">Staff</p>
-                <p className="text-slate-500">staff@clinic.com</p>
-                <p className="text-slate-500">staff123</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

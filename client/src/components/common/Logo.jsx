@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/Logo.png';
 
 const Logo = ({ size = 'default', showText = true }) => {
   const sizes = {
@@ -31,14 +32,15 @@ const Logo = ({ size = 'default', showText = true }) => {
         shadow-soft group-hover:shadow-glow
         transition-all duration-300
       `}>
-        <svg viewBox="0 0 24 24" fill="none" className={icon}>
-          <path 
-            d="M12 2v20M2 12h20" 
-            stroke="white" 
-            strokeWidth="3" 
-            strokeLinecap="round" 
-          />
-        </svg>
+       <img
+      src={logo}
+      alt="Sugar & Heart Clinic"
+      className={
+        size === 'large'
+          ? 'w-20 h-20 object-contain'
+          : 'w-12 h-12 object-contain'
+      }
+    />
       </div>
       {showText && (
         <div className="hidden sm:block">

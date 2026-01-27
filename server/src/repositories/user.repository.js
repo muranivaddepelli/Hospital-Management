@@ -7,7 +7,7 @@ class UserRepository {
   }
 
   async findAll(params = {}) {
-    const { search, role, hospitalId, page = 1, limit = 50 } = params;
+    const { search, role, hospital, page = 1, limit = 50 } = params;
     
     const query = {};
     if (search) {
@@ -20,8 +20,8 @@ class UserRepository {
       query.role = role;
     }
     // Hospital filter (optional for backward compatibility)
-    if (hospitalId) {
-      query.hospital = hospitalId;
+    if (hospital) {
+      query.hospital = hospital;
     }
 
     const skip = (page - 1) * limit;

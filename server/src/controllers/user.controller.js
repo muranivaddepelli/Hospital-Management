@@ -3,8 +3,8 @@ const { userService } = require('../services');
 class UserController {
   async getAll(req, res, next) {
     try {
-      const { search, role, page, limit } = req.query;
-      const result = await userService.getAll({ search, role, page, limit });
+      const { search, role, hospital, page, limit } = req.query;
+      const result = await userService.getAll({ search, role, hospital, page, limit });
       res.json({
         success: true,
         data: result

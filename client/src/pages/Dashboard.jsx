@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { format, isToday, parseISO } from 'date-fns';
+import './Dahboard.css';
 import { 
   HiOutlineArrowDownTray, 
   HiOutlineBookmarkSquare,

@@ -326,44 +326,44 @@ const StaffRecords = () => {
                     <th>Created By</th>
                     <th>Area</th>
                     <th>Created</th>
-                    <th className="text-right">Actions</th>
+                    <th className='text-center' >Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {data.records.map((record, index) => (
                     <tr key={record._id} className="animate-fade-in" style={{ animationDelay: `${index * 30}ms` }}>
                       <td>
-                        <div>
+                        <div className='text-center'>
                           <p className="font-medium text-slate-800 line-clamp-1">{record.title}</p>
                           <p className="text-xs text-slate-500 line-clamp-1">{record.description}</p>
                         </div>
                       </td>
-                      <td>
+                      <td className='text-center'>
                         <span className="text-sm capitalize">{record.category.replace('_', ' ')}</span>
                       </td>
-                      <td>
+                      <td className='text-center'>
                         <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full border capitalize ${getPriorityColor(record.priority)}`}>
                           {record.priority}
                         </span>
                       </td>
-                      <td>
+                      <td className='text-center'>
                         <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full capitalize ${getStatusColor(record.status)}`}>
                           {record.status.replace('_', ' ')}
                         </span>
                       </td>
-                      <td>
+                      <td className='text-center'>
                         <span className="text-sm text-slate-600">{record.createdBy?.name || '-'}</span>
                       </td>
-                      <td>
+                      <td className='text-center'>
                         <span className="text-sm text-slate-600">{record.area?.name || '-'}</span>
                       </td>
-                      <td>
+                      <td className='text-center'>
                         <span className="text-sm text-slate-500">
                           {format(new Date(record.createdAt), 'dd MMM yyyy')}
                         </span>
                       </td>
-                      <td>
-                        <div className="flex items-center justify-end gap-2">
+                      <td className='text-center'>
+                        <div className="flex items-center justify-center gap-2 ">
                           <button
                             onClick={() => openViewModal(record)}
                             className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"

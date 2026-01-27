@@ -13,6 +13,7 @@ import { Logo, Button, Input, Select } from '../components/common';
 import { authService } from '../services';
 import { useActiveHospitals } from '../hooks/useHospitals';
 import toast from 'react-hot-toast';
+import logo from '../../src/assets/Logo.png';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -136,10 +137,13 @@ const Signup = () => {
         <div className="relative z-10 flex flex-col justify-center px-16 text-white">
           <div className="mb-12">
             <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center mb-8">
-              <svg viewBox="0 0 24 24" fill="none" className="w-12 h-12">
-                <path d="M12 2v20M2 12h20" stroke="white" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </div>
+  <img
+    src={logo}
+    alt="Sugar & Heart Clinic"
+    className="w-14 h-14 object-contain"
+  />
+</div>
+
             <h1 className="text-4xl font-display font-bold mb-4">
               Sugar & Heart Clinic
             </h1>
@@ -292,9 +296,11 @@ const Signup = () => {
                 className="absolute right-3 top-[38px] text-slate-400 hover:text-slate-600 transition-colors"
               >
                 {showPassword ? (
-                  <HiOutlineEyeSlash className="w-5 h-5" />
+                  // <HiOutlineEyeSlash className="w-5 h-5" />
+                <HiOutlineEye className="w-5 h-5" />
+
                 ) : (
-                  <HiOutlineEye className="w-5 h-5" />
+                  <HiOutlineEyeSlash className="w-5 h-5" />
                 )}
               </button>
             </div>

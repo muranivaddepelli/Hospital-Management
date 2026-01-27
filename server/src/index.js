@@ -59,7 +59,7 @@ app.use(errorHandler);
 
 // Database connection and server start
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/daily-checklist';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://murani:Murani78%40@cluster0.r3doq1h.mongodb.net/hospital-management';
 
 mongoose.connect(MONGODB_URI)
   .then(() => {

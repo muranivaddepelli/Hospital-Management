@@ -22,7 +22,7 @@ const Sidebar = () => {
       roles: ['admin', 'staff']
     },
     {
-      label: 'My Records',
+      label: 'Clinic Records',
       path: '/records',
       icon: HiOutlineDocumentText,
       roles: ['admin', 'staff']

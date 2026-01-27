@@ -116,7 +116,7 @@ const UserForm = ({ user, hospitals, onSubmit, onClose, isLoading }) => {
 const Users = () => {
   const [search, setSearch] = useState('');
   const [filterRole, setFilterRole] = useState('');
-  const [filterHospital, setFilterHospital] = useState('');
+  const [filterHospital, setFilterHospital] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
@@ -124,7 +124,7 @@ const Users = () => {
   const { data, isLoading, error } = useUsers({ 
     search, 
     role: filterRole || undefined,
-    hospitalId: filterHospital || undefined 
+    hospital: filterHospital || undefined 
   });
   const { data: hospitals, isLoading: hospitalsLoading } = useActiveHospitals();
   const { mutate: createUser, isPending: isCreating } = useCreateUser();
@@ -223,8 +223,8 @@ const Users = () => {
             className="sm:w-48"
           />
           <Select
-            value={filterHospital}
-            onChange={(e) => setFilterHospital(e.target.value)}
+            value={filterHospital ?? ''}
+            onChange={(e) => setFilterHospital(e.target.value || null)}
             options={hospitalOptions}
             placeholder="All Hospitals"
             className="sm:w-48"
@@ -263,6 +263,8 @@ const Users = () => {
                   <th className="text-left">Email</th>
                   <th className="text-left">Hospital</th>
                   <th className="text-center">Role</th>
+                  <th className="text-center">Registered On</th> {/* ✅ NEW */}
+
                   <th className="text-center">Status</th>
                   <th className="text-center">Actions</th>
                 </tr>
@@ -304,6 +306,12 @@ const Users = () => {
                         {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
                       </span>
                     </td>
+                    <td className="text-center text-slate-600">
+  {user.createdAt
+    ? new Date(user.createdAt).toLocaleDateString('en-GB')
+    : '-'}
+</td>
+
                     <td className="text-center">
                       <button
                         onClick={() => toggleStatus(user._id)}

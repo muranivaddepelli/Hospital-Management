@@ -35,7 +35,7 @@ const DatePicker = ({
           max={max}
           className="input pl-10 cursor-pointer"
         />
-        <div className="absolute inset-0 flex items-center pl-10 pointer-events-none sm:hidden">
+<div className="absolute inset-0 hidden ">
           <span className="text-slate-700">{displayValue}</span>
         </div>
       </div>

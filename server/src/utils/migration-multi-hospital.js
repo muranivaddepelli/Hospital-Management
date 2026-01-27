@@ -126,8 +126,8 @@ async function migrate() {
     console.log(`   Users: ${await User.countDocuments()}`);
     console.log(`   Areas: ${await Area.countDocuments()}`);
     console.log(`   Tasks: ${await Task.countDocuments()}`);
-    console.log(`   Checklist Entries: ${await ChecklistEntry.countDocuments()}`);
-    console.log(`   Staff Records: ${await StaffRecord.countDocuments()}`);
+    // console.log(`   Checklist Entries: ${await ChecklistEntry.countDocuments()}`);
+    // console.log(`   Staff Records: ${await StaffRecord.countDocuments()}`);
     console.log('='.repeat(50));
     console.log('\n✅ Migration completed successfully!\n');
 

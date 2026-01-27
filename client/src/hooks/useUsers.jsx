@@ -5,7 +5,18 @@ import toast from 'react-hot-toast';
 export const useUsers = (params = {}) => {
   return useQuery({
     queryKey: ['users', params],
-    queryFn: () => userService.getAll(params),
+    // queryFn: () => userService.getAll(params),
+     queryFn: () => {
+      const cleanParams = Object.fromEntries(
+        Object.entries(params).filter(
+          ([_, value]) => value !== undefined && value !== null && value !== ''
+        )
+      );
+
+      console.log('USERS API PARAMS:', cleanParams); // 🔍 DEBUG
+
+      return userService.getAll(cleanParams);
+    },
     select: (data) => data.data,
   });
 };
