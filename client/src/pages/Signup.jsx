@@ -193,7 +193,7 @@ const Signup = () => {
       {/* Right Panel - Signup Form */}
       <div className="flex-1 flex items-center justify-center p-8 bg-gradient-to-br from-slate-50 to-white">
         <div className="w-full max-w-md">
-          <div className="lg:hidden mb-10 text-center">
+          <div className="lg:hidden mb-10 flex justify-center">
             <Logo size="large" />
           </div>
 
