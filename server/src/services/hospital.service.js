@@ -137,5 +137,40 @@ class HospitalService {
   }
 }
 
-module.exports = new HospitalService();
 
+
+
+
+
+
+
+
+
+const Area = require('../models/Area');
+const Task = require('../models/Task');
+
+const cloneHospitalData = async (sourceHospitalId, newHospitalId) => {
+  const areas = await Area.find({ hospitalId: sourceHospitalId });
+
+  for (const area of areas) {
+    const newArea = await Area.create({
+      name: area.name,
+      hospitalId: newHospitalId
+    });
+
+    const tasks = await Task.find({ areaId: area._id });
+
+    const newTasks = tasks.map(task => ({
+      name: task.name,
+      areaId: newArea._id,
+      hospitalId: newHospitalId
+    }));
+
+    await Task.insertMany(newTasks);
+  }
+};
+
+module.exports = {
+  hospitalService: new HospitalService(),
+  cloneHospitalData
+};

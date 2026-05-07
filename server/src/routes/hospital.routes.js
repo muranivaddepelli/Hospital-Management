@@ -130,5 +130,6 @@ router.patch('/:id/set-default', authenticate, adminOnly, param('id').isMongoId(
 // Toggle hospital status - Admin only
 router.patch('/:id/toggle-status', authenticate, adminOnly, param('id').isMongoId().withMessage('Invalid hospital ID'), validate, hospitalController.toggleStatus);
 
+
 module.exports = router;
 
